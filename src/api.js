@@ -7,6 +7,7 @@ function subscribeToDictionary(cb) {
 }
 
 function post(data){
+  // socket.on('dict', dict => cb(null, dict));
   socket.emit('postToDictionary', data)
 }
 

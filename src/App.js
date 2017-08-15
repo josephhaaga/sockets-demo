@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { subscribeToDictionary, post } from './api'
+import { subscribeToDictionary } from './api'
 
 
 
@@ -25,12 +25,6 @@ class App extends Component {
     console.log(this.state.old_dictionary)
     console.log(this.state.dictionary)
 
-
-    post("word");
-    // let n = this.state.dictionary;
-    // n['professional']+=1
-    // this.setState({dictionary: n})
-    // this._post();
     let g = Object.keys(this.state.dictionary).map((key, idx)=>{
       return <span style={{fontSize: this.state.dictionary[key] + 'em'}} >{key}</span>
     })

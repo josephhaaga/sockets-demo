@@ -14,12 +14,11 @@ io.on('connection', (client) => {
       client.emit('dict', dict);
     }, interval);
   });
-});
-
-io.on('postToDictionary', (data) => {
-    dict[data] = dict[data]+1;
+  client.on('postToDictionary', (data) => {
     console.log("Server.js: post")
-    socket.emit('callback', {done: 'Done', data: data});
+    dict[data] = dict[data]+1;
+    io.sockets.emit('callback', {done: 'Done', data: data});
+  });
 });
 
 const port = 8000;
